@@ -1,0 +1,25 @@
+def blood_pressure_category(systolic, diastolic):
+    if systolic < 120 and diastolic < 80:
+        return "Normal"
+    elif 120 <= systolic < 130 and diastolic < 80:
+        return "Elevated"
+    elif 130 <= systolic < 140 or 80 <= diastolic < 90:
+        return "Hypertension Stage 1"
+    elif systolic >= 140 or diastolic >= 90:
+        return "Hypertension Stage 2"
+    elif systolic > 180 or diastolic > 120:
+        return "Hypertensive Crisis (consult your doctor immediately)"
+    else:
+        return "Invalid input"
+
+def main():
+    try:
+        systolic = int(input("Enter your systolic blood pressure: "))
+        diastolic = int(input("Enter your diastolic blood pressure: "))
+        category = blood_pressure_category(systolic, diastolic)
+        print(f"Your blood pressure category is: {category}")
+    except ValueError:
+        print("Please enter valid numerical values for blood pressure.")
+
+if __name__ == "__main__":
+    main()
